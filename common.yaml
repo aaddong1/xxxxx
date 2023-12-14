@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 authentication:
-  - "passwordtest"
+  - "passwordDeemo"
 
 allow-lan: false # 是否允许局域网使用代理，特指上面 port 代理
 mode: rule # 全局=global 直连=direct 规则=rule
