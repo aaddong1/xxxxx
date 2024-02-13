@@ -104,8 +104,8 @@ GEOIP,cn,DIRECT
 FINAL,兜底
 
 [Remote Rule]
-https://raw.githubusercontent.com/aaddong1/9527/main/%E5%88%86%E6%B5%81/Emby_sp, policy=Emby_sp, tag=Emby_sp, enabled=true
-https://raw.githubusercontent.com/aaddong1/9527/main/%E5%88%86%E6%B5%81/Emby, policy=Emby, tag=Emby, enabled=true
+https://raw.githubusercontent.com/aaddong1/9527/main/Ruler/Emby_sp, policy=Emby_sp, tag=Emby_sp, enabled=true
+https://raw.githubusercontent.com/aaddong1/9527/main/Ruler/Emby.list, policy=Emby, tag=Emby, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Rule/Copilot.list, policy=Microsoft, tag=bing, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Rule/OpenAI.list, policy=GPT, tag=OpenAI.list, enabled=true
 https://raw.githubusercontent.com/Centralmatrix9/GetSomeMatrix/Master/QuantumultX/Ruleset/LAN.list, policy=DIRECT, tag=LAN, parser-enable=true, enabled=true
