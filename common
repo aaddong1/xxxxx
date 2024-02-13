@@ -28,7 +28,7 @@ syn = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d73
 守候服专用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/gjshsbs,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
 随便用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/493181678765,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Airport.png
 一念 = https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Dinosaur.png
-ACA = http://api.aca.best/api/v1/client/subscribe?token=6d0af9435dca04969ebf8ad5f5baeeea,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
+ACA = https://api.acaisbest.shop/api/v1/client/subscribe?token=5c228e74e47e1c402783d374f2de737c,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
 
 
 [Proxy Chain]
