@@ -13,6 +13,7 @@ allow-wifi-access = true
 wifi-access-http-port = 7222
 wifi-access-socks5-port = 7221
 proxy-test-url = http://cp.cloudflare.com/generate_204
+internet-test-url = http://wifi.vivo.com.cn/generate_204
 test-timeout = 3
 interface-mode = auto
 
@@ -28,7 +29,7 @@ syn = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d73
 守候服专用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/gjshsbs,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
 随便用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/493181678765,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Airport.png
 一念 = https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Dinosaur.png
-ACA = http://api.aca.best/api/v1/client/subscribe?token=6d0af9435dca04969ebf8ad5f5baeeea,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
+ACA = https://api.acaisbest.shop/api/v1/client/subscribe?token=5c228e74e47e1c402783d374f2de737c,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
 
 
 [Proxy Chain]
@@ -39,6 +40,8 @@ ACA = http://api.aca.best/api/v1/client/subscribe?token=6d0af9435dca04969ebf8ad5
 Available = url-test,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://1.1.1.1/generate_204,interval = 300,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/Catnet.png
 Emby = select,Emby_Filter,0.1,0.01,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
 Emby_sp = select,0.01,0.1,DIRECT,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,随便用TW,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png
+Emby_守候 = load-balance,守候专用_Filter,url = http://1.1.1.1/generate_204,interval = 360,max-timeout = 20,algorithm = random,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
+Emby_SYN = url-test,syn线路_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/pikachu.png
 YouTube = select,0.1,0.01,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,手动挡,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png
 Telegram = select,手动挡,家宽,Available,SG,HK,US,JP,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
 GPT = select,US,SG,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/openai.png
@@ -51,8 +54,6 @@ Spotify = select,DIRECT,HK,随便用HK,随便用SG,随便用JP,随便用US,随�
 Google = select,Available,HK,TW,SG,JP,US,KR,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png
 Apple = select,DIRECT,REJECT,SG,US,HK,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 Microsoft = select,Available,HK,SG,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png
-守候服 = load-balance,守候专用_Filter,url = http://1.1.1.1/generate_204,interval = 360,max-timeout = 20,algorithm = random,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
-syn涩涩 = url-test,syn涩涩_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/pikachu.png
 0.1 = url-test,0.1_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Fishport0.png
 0.01 = load-balance,0.01_Filter,url = http://1.1.1.1/generate_204,interval = 360,max-timeout = 20,algorithm = round-robin,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/TNTV2.png
 家宽 = select,家宽_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/StreamingCN.png
@@ -70,12 +71,12 @@ US = url-test,US_Filter,url = http://1.1.1.1/generate_204,interval = 360,toleran
 随便用TW = load-balance,low-TW_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
 
 [Remote Filter]
-HK_Filter = NameRegex, FilterKey = "(?=.*((?i)🇭🇰|香|港|香港|香江|香岛|湾仔|港仔|九龙|铜锣湾|旺角|HK|Hong|HongKong))^((?!(low|台|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
-TW_Filter = NameRegex, FilterKey = "(?=.*((?i)台|新北|彰化|TW|Taiwan))^((?!(low|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
-JP_Filter = NameRegex, FilterKey = "(?=.*((?i)🇯🇵|日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|名古屋|福冈|仙台|京都|Japan))^((?!(low|港|台|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
-KR_Filter = NameRegex, FilterKey = "(?=.*((?i)韩|KR|Korea|KOR|首尔|韓|汉城|春川))^((?!(港|台|日|low|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
-US_Filter = NameRegex, FilterKey = "(?=.*((?i)🇺🇸|美|美国|美利坚合众国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|华盛顿|内华达|蒙大纳|怀俄明州|菲尼克斯|阿尔伯克基|丹佛|US|United States|States|American))^((?!(low|港|台|日|韩|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
-SG_Filter = NameRegex, FilterKey = "(?=.*((?i)🇸🇬|新|狮|獅|坡|新加坡|星|星加坡|星洲|狮城|SG|Singapore))^((?!(港|low|台|日|韩|美|英|新西兰|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+HK_Filter = NameRegex, FilterKey = "(?=.*((?i)🇭🇰|香|港|香港|香江|香岛|湾仔|港仔|九龙|铜锣湾|旺角|HK|Hong|HongKong))^((?!(low|台|3.0|守候专用|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+TW_Filter = NameRegex, FilterKey = "(?=.*((?i)台|新北|彰化|TW|Taiwan))^((?!(low|中|3.0|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+JP_Filter = NameRegex, FilterKey = "(?=.*((?i)🇯🇵|日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|名古屋|福冈|仙台|京都|Japan))^((?!(low|3.0|港|台|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+KR_Filter = NameRegex, FilterKey = "(?=.*((?i)韩|KR|Korea|KOR|首尔|韓|汉城|春川))^((?!(港|3.0|台|日|low|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+US_Filter = NameRegex, FilterKey = "(?=.*((?i)🇺🇸|美|美国|美利坚合众国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|华盛顿|内华达|蒙大纳|怀俄明州|菲尼克斯|阿尔伯克基|丹佛|US|United States|States|American))^((?!(low|港|3.0|台|日|韩|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
+SG_Filter = NameRegex, FilterKey = "(?=.*((?i)🇸🇬|新|狮|獅|坡|新加坡|星|星加坡|星洲|狮城|SG|Singapore))^((?!(港|low|台|日|韩|美|3.0|英|劫持|新西兰|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
 0.01_Filter = NameRegex, FilterKey = "(?i)(0.01)"
 港台_Filter = NameRegex, FilterKey = "(?i)(港|HK|Hong|台|TW|Tai)"
 0.1_Filter = NameRegex, FilterKey = "(?i)(0.1)"
@@ -89,13 +90,16 @@ low-KR_Filter = NameRegex, FilterKey = "(low).*(韩国)|(韩国).*(low)"
 low-TW_Filter = NameRegex, FilterKey = "(low).*(台湾)|(台湾).*(low)"
 Netflix_Filter = NameRegex, FilterKey = "(?i)(Netflix|奈飞|劫持)"
 守候专用_Filter = NameRegex, FilterKey = "(?i)(守候专用)"
-syn涩涩_Filter = NameRegex, FilterKey = "(?i)(SP)"
+syn线路_Filter = NameRegex, FilterKey = "(?i)(SP)"
 
 
 
 [Rule]
-DOMAIN-SUFFIX,stream-zz.synn.cc,syn涩涩
-DOMAIN-SUFFIX,emby.cn2gias.uk,守候服
+DOMAIN-SUFFIX,kr-stream.ntrrr.top,DIRECT
+DOMAIN-SUFFIX,jp-stream.ntrrr.top,DIRECT
+DOMAIN-SUFFIX,stream.synn.cc,Emby_SYN
+DOMAIN-SUFFIX,stream-zz.synn.cc,Emby_SYN
+DOMAIN-SUFFIX,emby.cn2gias.uk,Emby_守候
 #Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
 #Strategy:DIRECT,PROXY,REJECT
 #Options:no-resolve(only for IP-CIDR,IP-CIDR2,GEOIP,IP-ASN)
@@ -131,6 +135,7 @@ https://raw.githubusercontent.com/Code-Dramatist/Rule_Actions/main/Proxy_Rule/Pr
 [Script]
 
 [Plugin]
+http://script.hub/file/_start_/https://raw.githubusercontent.com/yqc007/QuantumultX/master/javbdvipcrack.js/_end_/javbdvipcrack.plugin?n=javdb%E8%A7%A3%E9%94%81%E6%B0%B8%E4%B9%85%E4%BC%9A%E5%91%98%40Hausd0rff&type=qx-rewrite&target=loon-plugin&del=true, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Prevent_DNS_Leaks.plugin, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/LoonGallery.plugin, policy=兜底, enabled=true
 https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/QiDian_remove_ads.plugin, enabled=true
