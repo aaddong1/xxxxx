@@ -58,9 +58,9 @@ Microsoft = select,Available,HK,SG,DIRECT,url = http://cp.cloudflare.com/generat
 家宽 = select,家宽_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/StreamingCN.png
 HK = url-test,HK_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
 TW = select,TW_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/CN.png
-SG = select,SG_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
-JP = select,JP_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
-KR = select,KR_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+SG = fallback,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,max-timeout = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+JP = url-test,JP_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+KR = fallback,KR_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
 US = url-test,US_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
 随便用HK = load-balance,low-HK_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
 随便用SG = load-balance,low-SG_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
