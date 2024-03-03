@@ -78,7 +78,7 @@ KR_Filter = NameRegex, FilterKey = "(?=.*((?i)韩|KR|Korea|KOR|首尔|韓|汉城
 US_Filter = NameRegex, FilterKey = "(?=.*((?i)🇺🇸|美|美国|美利坚合众国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|华盛顿|内华达|蒙大纳|怀俄明州|菲尼克斯|阿尔伯克基|丹佛|US|United States|States|American))^((?!(low|港|3.0|Home|Emby|台|日|韩|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
 SG_Filter = NameRegex, FilterKey = "(?=.*((?i)🇸🇬|新|狮|獅|坡|新加坡|星|星加坡|星洲|狮城|SG|Singapore))^((?!(港|low|台|日|韩|美|3.0|Home|英|劫持|新西兰|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
 其他地区_Filter = NameRegex, FilterKey = "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hongkong|Hong Kong|HK|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|United States|韩|首尔|汉城|春川|Korea|KR|Home|套餐|最新|更新|速度|付费|官网|到期|有效|剩余|版本|已用|过期|失联|测试|官方|网址|备用|群|TEST|客服|网站|获取|订阅|流量|机场|下次|官址|联系|邮箱|工单|学术|USE|USED|TOTAL|EXPIRE|EMAIL)).*"
-0.01_Filter = NameRegex, FilterKey = "(?i)(0.01)"
+0.01_Filter = NameRegex, FilterKey = "(?=.*((?i)0.01))^((?!(Emby)).)*$"
 港台_Filter = NameRegex, FilterKey = "(?i)(港|HK|Hong|台|TW|Tai)"
 0.1_Filter = NameRegex, FilterKey = "(?i)(x0.1)"
 Emby_Filter = NameRegex, FilterKey = "(?i)(Emby|emby)"
