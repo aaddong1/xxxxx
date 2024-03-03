@@ -23,12 +23,11 @@ interface-mode = auto
 
 [Remote Proxy]
 nice = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/Nice,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-强东 = https://hutaod.com/link/CEdVHJuVLRCVpYKa?sub=1,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute1/1658318.png
 syn = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/753181348,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Catnet.png
 守候服专用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/gjshsbs,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
 随便用 = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/493181678765,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Airport.png
-一念 = https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Dinosaur.png
-ACA = https://api.acaisbest.shop/api/v1/client/subscribe?token=5c228e74e47e1c402783d374f2de737c,udp=true,fast-open=false,vmess-aead=true,enabled=false,img-url=https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/ACA.png
+一念 = https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Dinosaur.png
+
 
 
 [Proxy Chain]
@@ -59,7 +58,7 @@ Microsoft = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,�
 其他地区 = select,其他地区_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/COO.png
 HK = url-test,HK_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
 TW = select,TW_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/CN.png
-SG = fallback,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,max-timeout = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+SG = url-test,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 5,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
 JP = url-test,JP_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
 KR = fallback,KR_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
 US = url-test,US_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
@@ -69,6 +68,7 @@ US = url-test,US_Filter,url = http://1.1.1.1/generate_204,interval = 360,toleran
 随便用US = load-balance,low-US_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
 随便用KR = load-balance,low-KR_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
 随便用TW = load-balance,low-TW_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+直连 = select,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/loon.png
 
 [Remote Filter]
 HK_Filter = NameRegex, FilterKey = "(?=.*((?i)🇭🇰|香|港|香港|香江|香岛|湾仔|港仔|九龙|铜锣湾|旺角|HK|Hong|HongKong))^((?!(low|台|3.0|守候专用|Home|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
