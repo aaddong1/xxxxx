@@ -13,6 +13,7 @@ allow-wifi-access = true
 wifi-access-http-port = 7222
 wifi-access-socks5-port = 7221
 proxy-test-url = http://cp.cloudflare.com/generate_204
+internet-test-url = http://wifi.vivo.com.cn/generate_204
 test-timeout = 3
 interface-mode = auto
 
@@ -28,46 +29,44 @@ nice = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7
 一念 = https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2,udp=true,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Dinosaur.png
 
 
-
 [Proxy Chain]
 
 [Proxy Group]
-兜底 = select,Available,手动挡,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+兜底 = select,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+Proxy = select,手动挡,自动挡,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/substore.png
 手动挡 = select,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Wd1.png
-Available = url-test,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://1.1.1.1/generate_204,interval = 300,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/Catnet.png
-Emby = select,Emby_Filter,0.1,0.01,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,兜底,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
-Emby_sp = select,0.01,0.1,DIRECT,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,随便用TW,其他地区,手动挡,兜底,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png
-Emby_守候 = load-balance,守候专用_Filter,url = http://1.1.1.1/generate_204,interval = 360,max-timeout = 20,algorithm = random,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
-Emby_SYN = url-test,syn线路_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/tugepaopao/Image-Storage/master/cartoon/Cute/pikachu.png
-YouTube = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png
-Telegram = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+自动挡 = url-test,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 300,tolerance = 20,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applespringloaded.png
+Emby = select,Emby_Filter,0.1,0.01,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+Emby_sp = select,0.01,0.1,DIRECT,随便用HK,随便用SG,随便用JP,随便用US,随便用KR,随便用TW,其他地区,手动挡,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png
+Emby_守候 = load-balance,守候专用_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,max-timeout = 20,algorithm = random,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Shouhou.png
+YouTube = select,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png
+Telegram = select,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
 GPT = select,US,SG,KR,JP,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/openai.png
 流媒体劫持 = select,Netflix_Filter,手动挡,流媒体,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/netflix.png
 港台番剧 = select,DIRECT,TW,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Bili.png
 Tiktok = select,TW,US,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TikTok.png
-Twitter = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png
-Spotify = select,DIRECT,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png
-流媒体 = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/LineTV.png
-Google = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png
-Apple = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-Microsoft = select,兜底,手动挡,Available,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,0.01,0.1,其他地区,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png
-0.1 = url-test,0.1_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Fishport0.png
-0.01 = load-balance,0.01_Filter,url = http://1.1.1.1/generate_204,interval = 360,max-timeout = 20,algorithm = round-robin,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/TNTV2.png
+Twitter = select,US,KR,JP,SG,TW,HK,随便用SG,其他地区,0.01,家宽,自动挡,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png
+Spotify = select,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png
+流媒体 = select,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,其他地区,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/LineTV.png
+Google = select,US,KR,JP,SG,TW,HK,家宽,随便用SG,0.01,0.1,其他地区,自动挡,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png
+Apple = select,US,KR,JP,SG,TW,HK,家宽,随便用SG,0.01,0.1,其他地区,自动挡,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+Microsoft = select,US,KR,JP,SG,TW,HK,家宽,随便用SG,0.01,0.1,其他地区,自动挡,手动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png
+0.1 = url-test,0.1_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Fishport0.png
+0.01 = select,0.01_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/TNTV2.png
 家宽 = select,家宽_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/StreamingCN.png
 其他地区 = select,其他地区_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/COO.png
-HK = url-test,HK_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+HK = url-test,HK_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
 TW = select,TW_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/CN.png
 SG = url-test,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 5,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
 JP = url-test,JP_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
 KR = fallback,KR_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 2,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
-US = url-test,US_Filter,url = http://1.1.1.1/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
-随便用HK = load-balance,low-HK_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
-随便用SG = load-balance,low-SG_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
-随便用JP = load-balance,low-JP_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
-随便用US = load-balance,low-US_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
-随便用KR = load-balance,low-KR_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
-随便用TW = load-balance,low-TW_Filter,url = http://1.1.1.1/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
-直连 = select,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/loon.png
+US = url-test,US_Filter,url = http://cp.cloudflare.com/generate_204,interval = 360,tolerance = 20,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+随便用HK = load-balance,low-HK_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
+随便用SG = load-balance,low-SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+随便用JP = load-balance,low-JP_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
+随便用US = load-balance,low-US_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
+随便用KR = load-balance,low-KR_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
+随便用TW = load-balance,low-TW_Filter,url = http://cp.cloudflare.com/generate_204,interval = 120,max-timeout = 3000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
 
 [Remote Filter]
 HK_Filter = NameRegex, FilterKey = "(?=.*((?i)🇭🇰|香|港|香港|香江|香岛|湾仔|港仔|九龙|铜锣湾|旺角|HK|Hong|HongKong))^((?!(low|台|3.0|守候专用|Home|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"
@@ -97,8 +96,8 @@ syn线路_Filter = NameRegex, FilterKey = "(?i)(SP)"
 [Rule]
 DOMAIN,kr-stream.ntrrr.top,DIRECT
 DOMAIN,jp-stream.ntrrr.top,DIRECT
-DOMAIN,stream.synn.cc,Emby_SYN
-DOMAIN,stream-zz.synn.cc,Emby_SYN
+DOMAIN,stream.synn.cc,DIRECT
+DOMAIN,stream-zz.synn.cc,DIRECT
 DOMAIN,emby.cn2gias.uk,Emby_守候
 #Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
 #Strategy:DIRECT,PROXY,REJECT
@@ -125,17 +124,47 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TikTok.list, policy=Tiktok, tag=tinktok, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list, policy=Telegram, tag=Telegram, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=Google, tag=Google, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy.list, policy=Available, tag=Global, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Proxy/Proxy.list, policy=自动挡, tag=Global, enabled=true
 https://raw.githubusercontent.com/Code-Dramatist/Rule_Actions/main/Reject_Rule/Reject_Rule.rule, policy=REJECT, tag=Reject_Rule.rule, enabled=true
 https://raw.githubusercontent.com/Code-Dramatist/Rule_Actions/main/Direct_Rule/Direct_Rule.rule, policy=DIRECT, tag=Direct_Rule.rule, enabled=true
-https://raw.githubusercontent.com/Code-Dramatist/Rule_Actions/main/Proxy_Rule/Proxy_Rule.rule, policy=Available, tag=Proxy_Rule.rule, enabled=true
+https://raw.githubusercontent.com/Code-Dramatist/Rule_Actions/main/Proxy_Rule/Proxy_Rule.rule, policy=自动挡, tag=Proxy_Rule.rule, enabled=true
 
 [Rewrite]
 
 [Script]
 
 [Plugin]
-
+https://raw.githubusercontent.com/aaddong1/9527/main/tf, policy=兜底, tag=自动加入TestFlight, enabled=false
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Prevent_DNS_Leaks.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/LoonGallery.plugin, policy=兜底, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/QiDian_remove_ads.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Zhihu_remove_ads.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Node_detection_tool.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Cainiao_remove_ads.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Taobao_remove_ads.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/Spotify_lyrics_translation.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/WexinMiniPrograms_Remove_ads.plugin, enabled=true
+https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Loon/Plugin/TubeMax_remove_ads.plugin, enabled=true
+https://gitlab.com/isous/loonresource/-/raw/main/Plugin/NeteaseCloudMusic_shared_membership.plugin, enabled=true
+https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_GetCookie.plugin, enabled=false
+https://raw.githubusercontent.com/Tartarus2014/Loon-Script/master/Plugin/Block/Block%20Update.plugin, enabled=true
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, enabled=true
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/tieba.plugin, enabled=true
+https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.plugin, enabled=true
+https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn_token.plugin, enabled=false
+https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_Bahamut_ADS.plugin, enabled=true
+https://raw.githubusercontent.com/qiuxiuya/qiuxiuya/main/Loon/NetEaseMusic.plugin, enabled=true
+https://raw.githubusercontent.com/Keywos/rule/main/loon/Netisp.plugin, enabled=true
+https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.plugin, enabled=true
+https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_TF_Account.plugin, enabled=true
+https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_TF_Download.plugin, enabled=true
+https://raw.githubusercontent.com/deezertidal/private/master/plugallery/xmind.plugin, enabled=true
+https://raw.githubusercontent.com/deezertidal/private/master/plugallery/fanqienovel.plugin, enabled=true
+https://raw.githubusercontent.com/deezertidal/private/master/plugallery/caiyun.plugin, enabled=true
+https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=自动挡, enabled=true
+https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Loon.plugin, policy=自动挡, enabled=true
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/spotify.plugin, enabled=true
+https://raw.githubusercontent.com/app2smile/rules/master/plugin/adsense.plugin, enabled=true
 [Mitm]
 ca-p12 = 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
 ca-passphrase = 5R5XFAPS
