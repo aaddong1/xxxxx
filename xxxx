@@ -32,7 +32,7 @@ nice = https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7
 [Proxy Chain]
 
 [Proxy Group]
-兜底 = select,手动挡,自动挡,DIRECT,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+兜底 = select,手动挡,自动挡,DIRECT,US,KR,JP,SG,TW,HK,家宽,随便用HK,随便用TW,随便用SG,随便用JP,随便用US,随便用KR,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
 Proxy = select,手动挡,自动挡,url = http://cp.cloudflare.com/generate_204,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/substore.png
 手动挡 = select,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/black2c7/TheMagic-Icons/main/Icons/Wd1.png
 自动挡 = url-test,HK_Filter,TW_Filter,JP_Filter,KR_Filter,US_Filter,SG_Filter,url = http://cp.cloudflare.com/generate_204,interval = 300,tolerance = 20,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applespringloaded.png
