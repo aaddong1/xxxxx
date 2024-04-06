@@ -1,0 +1,702 @@
+#==========================================
+# @ConfigName         One4All
+# @Author            Max GG
+# @UpdateTime         2024/01/07 09:00 UTC/GMT +8
+# @Function          支持GG bond、故障转移、手动选择、DNS解析选择、自动测速、广告屏蔽、漏网之鱼、按国家分组节点、多机场订阅等等   
+# @ClashDownload       自己查
+# @Thanks            @Samber926, @ACL4SSR, @Cuttlefish, @blackmatrix7, @Fndroid, @Anti等等一堆我已经记不住名字的大佬们
+# @Attention         请使用最新的ClashMeta内核,其他内核需要修改配置内容
+# @ConfigVersion       1.3
+#==========================================
+
+port: 7890         # HTTP 代理端口
+socks-port: 7891     # Socks 端口
+redir-port: 7892     # Redir 端口
+mixed-port: 7893     # 混合端口
+tproxy-port: 7895
+allow-lan: true      # 允许局域网连接
+bind-address: "*"    # 地址绑定
+mode: rule         # 规则模式
+log-level: silent    # 日志级别
+unified-delay: true   # 统一延迟
+tcp-concurrent: true  # TCP并发
+ipv6: true         # IPV6总开关
+external-controller: 0.0.0.0:9090
+secret: '123456'
+external-ui: /usr/share/openclash/ui
+external-ui-url: https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+#    QUIC:
+#      ports: [443, 8443]
+#  skip-domain:
+#    - "Mijia Cloud"
+
+# TUN模式是通过在操作系统上安装一个虚拟网卡来实现的，它可以接管所有的网络流量，并将流量转发至Clash，然后由Clash发出请求
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+  auto-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true         # 不使用系统 DNS
+  ipv6: true          # 开启 IPV6 dns解析
+  listen: 0.0.0.0:7874   # dns 监听
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time-ios.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - time1.cloud.tencent.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - "+.qq.com"
+    - "+.tencent.com"
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.*.xboxlive.com"
+    - xbox.*.microsoft.com
+    - xnotify.xboxlive.com
+    - "+.battlenet.com.cn"
+    - "+.wotgame.cn"
+    - "+.wggames.cn"
+    - "+.wowsgame.cn"
+    - "+.wargaming.net"
+    - proxy.golang.org
+    - stun.*.*
+    - stun.*.*.*
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - heartbeat.belkin.com
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.router.asus.com"
+    - mesu.apple.com
+    - swscan.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - lens.l.google.com
+    - stun.l.google.com
+    - na.b.g-tun.com
+    - "+.nflxvideo.net"
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.ff14.sdo.com"
+    - ff.dorado.sdo.com
+    - "*.mcdn.bilivideo.cn"
+    - "+.media.dssott.com"
+    - shark007.net
+    - Mijia Cloud
+    - "+.cmbchina.com"
+    - "+.cmbimg.com"
+    - local.adguard.org
+    - "+.sandai.net"
+    - "+.n0808.com"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:            # DNS 服务,默认DOH，如果卡的话可以使用tls或udp，其余同理
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    #- tls://119.29.29.29
+    #- tls://223.5.5.5
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+   "rule-set:private":
+     - https://doh.pub/dns-query
+     - https://dns.alidns.com/dns-query
+   "rule-set:geolocation-!cn":
+     - "https://dns.cloudflare.com/dns-query#🚀 节点选择"
+     - "https://dns.google/dns-query#🚀 节点选择"
+#  fallback:          # 国外 DNS 服务器
+#    - https://cloudflare-dns.com/dns-query
+#    - https://dns.google/dns-query
+#    - https://dns.alidns.com/dns-query
+#  fallback-filter:
+#    geoip: true
+#    geoip-code: CN
+#    ipcidr:
+#      - 240.0.0.0/4
+
+#========= 建立锚点 =========#
+
+# 策略组引用
+pr:        &a3 {type: select,   proxies: [🚀 节点选择, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, DIRECT] }
+p:         &a1 {type: http,     interval: 7200,  health-check: {enable: true, url: http://cp.cloudflare.com/generate_204, interval: 1800}, exclude-filter: "(?i)国际|去除|游戏|返利|GAME|套餐|最新|更新|速度|付费|中国|官网|到期|有效|剩余|版本|已用|过期|失联|测试|官方|网址|备用|群|客服|网站|获取|订阅|流量|机场|下次|官址|联系|邮箱|工单|学术|USE|USED|TOTAL|EXPIRE|EMAIL"}
+X:         &x1 {type: http,     interval: 7200,  health-check: {enable: true, url: http://cp.cloudflare.com/generate_204, interval: 1800}}
+sub:        &a9 { use: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, 随便用]}
+auto:       &a4 {type: url-test, lazy: true,  url: http://cp.cloudflare.com/generate_204, interval: 300, tolerance: 10, <<: *a9 }
+use:        &a2 {type: select,   <<: *a9}
+fallback:    &a8 {type: fallback,  <<: *a9}
+loadbalance_1: &a10 {type: load-balance, strategy: round-robin,  url: http://cp.cloudflare.com/generate_204, interval: 300, tolerance: 10, <<: *a9 }
+loadbalance_2: &a11 {type: load-balance, strategy: consistent-hashing,  url: http://cp.cloudflare.com/generate_204, interval: 300, tolerance: 10, <<: *a9 }
+c:         &a6 {type: http,     behavior: classical, interval: 86400}
+d:         &a5 {type: http,     behavior: domain,    interval: 86400}
+i:         &a7 {type: http,     behavior: ipcidr,    interval: 86400}
+
+sub2:        &b1 { use: [hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, ACA, NICE], exclude-filter: "(?i)Lite|Home|Emby|劫持|香港实验性|日本实验性|新加坡实验性|美国实验性"}
+b2:        &b2 {type: select,   proxies: [🚀 节点选择, DIRECT, 👻 低倍率, 🏠 Home, 💡 Good, 🔮 GG bond（手动）, ⚡ ACA, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
+b3:        &b3 {type: select,   proxies: [DIRECT, 🚀 节点选择, 👻 低倍率, 🏠 Home, 💡 Good, 🔮 GG bond（手动）, ⚡ ACA, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
+loadbalance_3:        &b4 {type: select,   proxies: [🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
+Good:        &b5 {type: select,   proxies: [⚡ ACA, 🪢 coo, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🛡️ 备用] }
+QAQ:        &b6 {type: select,   proxies: [👻 低倍率, 🪄 一念, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区] }
+GG bond:        &g1 {type: load-balance, strategy: round-robin,  url: http://cp.cloudflare.com/generate_204, interval: 120, tolerance: 10, <<: *b1 }
+auto2:       &b7 {type: url-test, lazy: true,  url: http://cp.cloudflare.com/generate_204, interval: 360, tolerance: 10,<<: *b1 }
+备用:        &b8 {type: select,   proxies: [🐦 飞鸟云, 🚀 卷王机场,🪢 coo, 🌠 M78] }
+
+ACA:        &c1 {type: select,   use: [ACA] }
+m78:        &c4 {type: select,   use: [m78star] }
+一念:        &c5 {type: select,   use: [一念] }
+IEPL:        &c6 {type: load-balance, lazy: true,  url: http://cp.cloudflare.com/generate_204, interval: 240, tolerance: 10, use: [] }
+低倍率:        &c7 {type: select,   use: [ACA, NICE] }
+jp:        &c8 {type: select,   use: [ACA] }
+qt:        &c9 {type: select,   use: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, 飞鸟, 卷王, 一念]}
+dd:        &d1 {type: select,   use: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, 飞鸟, 卷王], exclude-filter: "Emby", filter: "0.01|0.1|0.2|0.5|0.8"}
+Home:        &d2 {type: select,   use: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, hy1, hy2, hy3, hy4, hy5, hy6, hy7, hy8, 飞鸟, 卷王, 一念, ACA]}
+zj:        &zj {type: select, use: [zj], proxies: []}
+手动:        &sd {type: select,   proxies: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, hy1, hy2, hy3, hy4, hy5, hy6, hy7, hy8]}
+
+proxy-providers:
+# URL后面""中填写格式1[多个订阅]：https://api.nexconvert.com/sub?target=clash&url=请手动填入你的订阅(多机场订阅用|分割即可)&emoji=true&list=true&new_name=true&udp=false
+# URL后面""中填写格式2[单一订阅]: 直接填写你的机场Clash订阅[推荐此种方式，避免订阅泄露]
+# 多个机场使用单一订阅，请按原格式继续添加ACA2/5/6/7等等，上方锚点205行sub同样需要修改
+# 筛选节点"filter"，剔除节点"exclude-filter"，多个节点中间用"|"隔开
+
+  ACA:
+    <<: *a1
+    url: "http://api.acaisbest.shop/api/v1/client/subscribe?token=d8bd75f514872d924d5aed00272941ec"
+
+
+  飞鸟:
+    <<: *a1
+    url: "https://feiniaoyun.life/api/v1/client/subscribe?token=e15a5ca3efd8182a711fa1e079642d45"
+
+  卷王:
+    <<: *a1
+    url: "https://juanwang.site/api/v1/client/subscribe?token=46726ac93b9f2397be459f87a1cbc77f"
+
+  m78star:
+    <<: *x1
+    url: "https://sub.7878787878.top/api/v1/client/subscribe?token=56afd58f3aa41d376547a5ec4555a9ce"
+
+  一念:
+    <<: *a1
+    url: "https://cdcloud.b-cdn.net/api/v1/client/subscribe?token=d7b0d61b635563586f2b899a75c8c4b2"
+
+  coo:
+    <<: *a1
+    url: "https://sub.coo.ga/api/v1/client/subscribe?token=4de34320027f829038b8bc6a868acc2f"
+
+  hy1:
+    <<: *x1
+    url: "https://f.wwwq.net/api/v1/client/subscribe?token=61e3b9a9f01d24eaf0c1a5a04cd8541b"
+
+  hy2:
+    <<: *x1
+    url: "https://jkcloud.icu/api/v1/client/subscribe?token=98a7cbef67308c02a9fd561bc1e524e8"
+
+  hy3:
+    <<: *x1
+    url: ""
+
+  hy4:
+    <<: *x1
+    url: ""
+
+  hy5:
+    <<: *x1
+    url: ""
+
+  hy6:
+    <<: *x1
+    url: ""
+
+  hy7:
+    <<: *x1
+    url: ""
+
+  hy8:
+    <<: *x1
+    url: ""
+
+  bpa:
+    <<: *a1
+    url: "https://api.xqc.best/api/v1/client/subscribe?token=4518135d34ab5d259a7d6217f87d0a6b"
+
+  bpb:
+    <<: *a1
+    url: "https://1.866663.xyz/api/v1/client/subscribe?token=faea624ff26ede6b26ffd80682549837"
+
+  bpc:
+    <<: *a1
+    url: ""
+
+  bpd:
+    <<: *a1
+    url: ""
+
+  bpe:
+    <<: *a1
+    url: ""
+
+  bpf:
+    <<: *a1
+    url: ""
+
+  bpg:
+    <<: *a1
+    url: ""
+
+  bph:
+    <<: *a1
+    url: ""
+
+  bpi:
+    <<: *a1
+    url: ""
+
+  bpj:
+    <<: *a1
+    url: ""
+
+  bpk:
+    <<: *a1
+    url: ""
+
+  bpl:
+    <<: *a1
+    url: ""
+
+  bpm:
+    <<: *a1
+    url: ""
+
+  bpn:
+    <<: *a1
+    url: ""
+
+  bpo:
+    <<: *a1
+    url: ""
+
+  bpp:
+    <<: *a1
+    url: ""
+
+  zj:
+    <<: *a1
+    url: ""
+    
+  随便用:
+    <<: *a1
+    url: "https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/jjjj"
+  
+  守候专用:
+    <<: *a1
+    url: "https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/jsjdbsn"
+
+  SYN:
+    <<: *a1
+    url: ""
+
+  WARP:
+    <<: *a1
+    url: "https://subs.zeabur.app/clash"
+
+  NICE:
+    <<: *a1
+    url: "https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/hjshssuh"
+
+  花云:
+    <<: *x1
+    url: "https://api.flowercloud.xyz/osubscribe.php?sid=103440&token=1iicZoYBYhhp&sip002=1"
+#    url: "https://api.flowercloud.xyz/osubscribe.php?sid=9041&token=u68NoXHcXu4P&sip002=1"
+
+
+  阿童木:
+    <<: *x1
+    url: "https://atom-sub.com/api/v1/client/subscribe?token=2ce9973257badaf5dc6e42e95b4eabab"
+
+proxies: 
+    - {name: 🇰🇷 Opc韩国, server: krse3.ip8.shop, port: 20050, reality-opts: {public-key: -DzfQh5pVlGmJpvr-fluZkzTGXsZ-ok15raVKxCSf2M, short-id: 7f125185}, client-fingerprint: chrome, type: vless, uuid: 99e3d5d9-6e55-4a04-b2bc-3a90edc85490, tls: true, tfo: false, servername: aws.amazon.com, flow: xtls-rprx-vision, skip-cert-verify: false}
+    - {name: 🇯🇵 日本-1PB/月, server: a3ca.e2s.buzz, port: 36999, type: ss, cipher: aes-256-gcm, password: 47c97380-6525-46ca-88ef-d23866fc904c}
+    - {name: 卡夫卡, server: 67.230.175.63, port: 23672, type: vmess, uuid: 62339746-0d71-4946-cf65-bcd5e8493039, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+
+proxy-groups:
+#分流分组
+  - {name: 🚀 节点选择, type: select, proxies: [👻 低倍率,⚡ ACA, 💡 Good, 🔮 GG bond（手动）, 🪄 一念, XQC$MJJ, WARP, 🛡️ 备用, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区, DIRECT]}
+  - {name: 🥅 兜底, type: select, proxies: [🚀 节点选择, DIRECT, 👻 低倍率,⚡ ACA, 💡 Good, 🔮 GG bond（手动）, 🪄 一念, 🛡️ 备用,  🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区], use: [ACA], filter: "Emby"}
+#  - {name: 🎉 QAQ, <<: *b6}
+  - {name: 💡 Good, type: select, proxies: [花云, 阿童木]}
+  - {name: 🔮 GG bond（手动）, type: select, use: [NICE, hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, ACA], exclude-filter: "(?i)Lite|Home|Emby|劫持|香港实验性|日本实验性|新加坡实验性|美国实验性"}
+  - {name: 🎬 Emby, type: select, proxies: [🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, XQC$MJJ, WARP, 🪄 一念, DIRECT], use: [ACA], filter: "Emby"}
+  - {name: 🎬 Emby-sp, type: select, proxies: [🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, XQC$MJJ, WARP, 🪄 一念, DIRECT]}
+  - {name: 📲 Telegram, <<: *b2}
+  - {name: 🤖 OpenAi, <<: *b2}
+  - {name: 📹 YouTube, <<: *b2}
+  - {name: 🛡️ 备用, <<: *b8}
+#  - {name: 🔮 GG bond, <<: *b4}
+  - {name: 🏠 Home, <<: *d2, filter: "Home|家宽"}
+#  - {name: ⚓ 节点, <<: *zj}
+  - {name: 🌌 Twitter, <<: *b2}
+  - {name: 🎮 Twitch, <<: *b2}
+  - {name: 🎥 TikTok, <<: *b2}
+  - {name: 🎵 Spotify, <<: *b2}
+  - {name: 📺 流媒体劫持, <<: *b2}
+  - {name: Ⓜ️ 微软Bing, <<: *b2}
+  - {name: Ⓜ️ 微软云盘, <<: *b3}
+  - {name: Ⓜ️ 微软服务, <<: *b3}
+  - {name: 📢 谷歌FCM, <<: *b2}
+  - {name: 🍎 苹果服务, <<: *b3}
+#  - {name: 📡 dns, <<: *b2}
+  - {name: 🎮 Game, <<: *b3}
+  - {name: 📺 巴哈姆特, type: select, proxies: [🇨🇳 台湾, 🚀 节点选择, DIRECT]}
+  - {name: 📺 哔哩哔哩, type: select, proxies: [DIRECT, 🇭🇰 香港, 🇨🇳 台湾]}
+  - {name: 🎬 国外媒体, <<: *b2}
+  - {name: 🌏 国内媒体, type: select, proxies: [DIRECT, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区]}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🚀 节点选择]}
+  - {name: 🆎 广告拦截, type: select, proxies: [REJECT, DIRECT]}
+  - {name: 🍃 应用净化, type: select, proxies: [REJECT, DIRECT]}
+  
+#节点分组
+# a4自动测速, a2手动选择, a8故障转移, a10GG bond-轮循, a11GG bond-散列
+  - {name: 🇭🇰 香港, <<: *a11, filter: "(?=.*((?i)🇭🇰|香|港|香港|香江|香岛|湾仔|港仔|九龙|铜锣湾|旺角|HK|Hong|HongKong))^((?!(台|中|加|荷|德|越|瑞|菲|日|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"}     
+  - {name: 🇯🇵 日本, <<: *a11, filter: "(?=.*((?i)🇯🇵|日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|名古屋|福冈|仙台|京都|Japan))^((?!(港|台|韩|新|美|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"}
+  - {name: 🇨🇳 台湾, <<: *a2, filter: "(?i)台|新北|彰化|TW|Taiwan"}
+  - {name: 🇺🇸 美国, <<: *a11, filter: "(?=.*((?i)🇺🇸|美|美国|美利坚合众国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|华盛顿|内华达|蒙大纳|怀俄明州|菲尼克斯|阿尔伯克基|丹佛|US|United States|States|American))^((?!(港|台|日|韩|新|英|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"}
+  - {name: 🇸🇬 狮城, <<: *a11, filter: "(?=.*((?i)🇸🇬|新|狮|獅|坡|新加坡|星|星加坡|星洲|狮城|SG|Singapore))^((?!(港|冰西瓜|台|日|韩|美|英|新西兰|平|邀|群|刷新|网|网易|网易云|网易云音乐|音乐|云音乐|Netease|Music|𝐌𝐮𝐬𝐢𝐜|Unbolck|Update|music|🎵|🎶|🎧)).)*$"}
+  - {name: 🇰🇷 韩国, <<: *a11, filter: "(?i)韩|KR|Korea|KOR|首尔|韓|汉城|春川"}
+  - {name: 🌐 其它地区, <<: *c9, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hongkong|Hong Kong|HK|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|United States|韩|首尔|汉城|春川|Korea|KR|套餐|最新|更新|速度|付费|官网|到期|有效|剩余|版本|已用|过期|失联|测试|官方|网址|备用|群|TEST|客服|网站|获取|订阅|流量|机场|下次|官址|联系|邮箱|工单|学术|USE|USED|TOTAL|EXPIRE|EMAIL)).*"}
+  - {name: 🔮 GG bond（SG）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)新加坡|坡|狮城|SG|Singapore"}
+  - {name: 🔮 GG bond（HK）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)港|HK|hk|Hong Kong|HongKong|hongkong"}
+  - {name: 🔮 GG bond（JP）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan"}
+  - {name: 🔮 GG bond（US）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"}
+  - {name: 👻 低倍率, <<: *c7, filter: "(Singapore).*(0.2)|SG 0[1-3] 0.20x V2|(实验性)|JP 0[1-3] 0.20x V2|(Japan).*(0.2)|0.2"}
+  - {name: "⚡ ACA", type: select, use: [ACA]}
+  - {name: "🐦 飞鸟云", type: url-test, use: [飞鸟], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "日本|新加坡|香港"}
+  - {name: "🚀 卷王机场", type: url-test, use: [卷王], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "日本|新加坡|香港"}
+  - {name: "🌠 M78", type: select, use: [m78star]}
+  - {name: "🪢 coo", type: select, use: [coo]}
+  - {name: "🪄 一念", type: select, use: [一念], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "0.01"}
+#  - {name: "bpa", type: select, use: [bpa]}
+#  - {name: "bpb", type: select, use: [bpb]}
+#  - {name: "bpc", type: select, use: [bpc]}
+#  - {name: "bpd", type: select, use: [bpd]}
+#  - {name: "bpe", type: select, use: [bpe]}
+#  - {name: "bpf", type: select, use: [bpf]}
+#  - {name: "bpg", type: select, use: [bpg]}
+#  - {name: "bph", type: select, use: [bph]}
+#  - {name: "bpi", type: select, use: [bpi]}
+#  - {name: "bpj", type: select, use: [bpj]}
+#  - {name: "bpk", type: select, use: [bpk]}
+#  - {name: "bpl", type: select, use: [bpl]}
+#  - {name: "bpm", type: select, use: [bpm]}
+#  - {name: "bpn", type: select, use: [bpn]}
+#  - {name: "bpo", type: select, use: [bpo]}
+#  - {name: "bpp", type: select, use: [bpp]}
+#  - {name: "hy1", type: select, use: [hy1]}
+#  - {name: "hy2", type: select, use: [hy2]}
+#  - {name: "hy3", type: select, use: [hy3]}
+#  - {name: "hy4", type: select, use: [hy4]}
+#  - {name: "hy5", type: select, use: [hy5]}
+#  - {name: "hy6", type: select, use: [hy6]}
+#  - {name: "hy7", type: select, use: [hy7]}
+#  - {name: "hy8", type: select, use: [hy8]}
+  - {name: "花云", type: select,  use: [花云]}
+  - {name: "阿童木", type: select,  use: [阿童木]}
+#  - {name: "Emby-syn", type: select,  use: [SYN], proxies: [🎬 Emby, DIRECT]}
+  - {name: "Emby-守候", type: load-balance,  use: [守候专用], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10}
+  - {name: "XQC$MJJ", type: url-test,  use: [bpa, bpb], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
+  - {name: "WARP", type: load-balance,  use: [WARP], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
+
+
+
+
+rule-providers:
+#DNS分流ruleset
+  private:
+    <<: *a5
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
+  geolocation-!cn:
+    <<: *a5
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"
+#ACL4SSR分流规则
+  LocalAreaNetwork:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+  UnBan:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+  BanAD:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
+  BanProgramAD:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+  GoogleFCM:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+  GoogleCN:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+  SteamCN:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+  Bing:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bing.yaml"
+  OneDrive:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
+  Microsoft:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
+  Apple:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Apple.yaml"
+  Telegram:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+  OpenAi:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml"
+  Epic:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml"
+  Origin:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Origin.yaml"
+  Sony:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Sony.yaml"
+  Steam:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml"
+  Nintendo:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Nintendo.yaml"
+  YouTube:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml"
+  Netflix:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml"
+  Bahamut:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bahamut.yaml"
+  BilibiliHMT:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/BilibiliHMT.yaml"
+  Bilibili:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml"
+  ChinaMedia:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
+  ProxyMedia:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+  ProxyGFWlist:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+#  ChinaIp:
+#    <<: *a7
+#    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
+  ChinaDomain:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+  ChinaCompanyIp:
+    <<: *a7
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+  Download:
+    <<: *a6
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml"
+  Emby:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/aaddong1/9527/main/Ruler/Emby"
+  Twitch:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitch/Twitch.yaml"
+  Spotify:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml"
+  TikTok:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+  Twitter:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
+  InternationalDownloadCDN:
+    <<: *a6
+    url: "https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/InternationalDownloadCDN.yaml"
+  ChinaDownloadCDN:
+    <<: *a6
+    url: "https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Tool/Clash/Rule/ChinaDownloadCDN.yaml"
+  disney:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml"
+
+  emby-sp:
+    <<: *a6
+    url: "https://raw.githubusercontent.com/aaddong1/9527/main/Ruler/Emby-sp.yaml"
+  
+# 分流Policy 
+rules:
+# 自用
+  - DOMAIN-KEYWORD,pornhub,📺 流媒体劫持
+#  - DOMAIN-SUFFIX,stream-zz.synn.cc,Emby-syn
+#  - DOMAIN-SUFFIX,stream.synn.cc,Emby-syn
+  - DOMAIN-SUFFIX,jp-stream.ntrrr.top,🎯 全球直连
+  - DOMAIN-SUFFIX,kr-stream.ntrrr.top,🎯 全球直连
+  - DOMAIN-SUFFIX,emby.cn2gias.uk,Emby-守候
+#aca_emby节点不能用的
+# ntRRR
+  - DOMAIN-SUFFIX,ntrrr.top,🎬 Emby-sp
+#ciji
+  - DOMAIN-KEYWORD,809688.xyz,🎬 Emby-sp
+#琴鸟
+  - DOMAIN-KEYWORD,direct.lyrebirdemby,🎬 Emby-sp
+#MICU Cloud Media
+  - DOMAIN-SUFFIX,tv.micu.hk,🎬 Emby-sp
+#蛋挞云机场服
+  - DOMAIN-SUFFIX,emby.eggtartcloud.shop,🎬 Emby-sp
+  - DOMAIN-SUFFIX,vip3.jellyfin.asia,🎬 Emby-sp
+#misty
+  - DOMAIN-SUFFIX,misty.cx,🎬 Emby-sp
+#pornemby vip
+  - DOMAIN-SUFFIX,s.ii00.cc,🎬 Emby-sp
+#叔服
+  - DOMAIN-SUFFIX,emby3.mcjoker.xyz,🎬 Emby-sp
+#cbcb
+  - DOMAIN-SUFFIX,emby.cbcb.lol,🎬 Emby-sp
+# CherryEmby
+  - DOMAIN-SUFFIX,cherrytv.one,🎬 Emby-sp
+# 白浪兔
+  - DOMAIN-SUFFIX,emby.airpor.top,🎬 Emby-sp
+
+# 规则集
+  - RULE-SET,emby-sp,🎬 Emby-sp
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,UnBan,🎯 全球直连
+  - RULE-SET,BanAD,🆎 广告拦截
+  - RULE-SET,BanProgramAD,🍃 应用净化
+  - RULE-SET,Emby,🎬 Emby
+  - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Bing,Ⓜ️ 微软Bing
+  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,OpenAi,🤖 OpenAi
+  - RULE-SET,Epic,🎮 Game
+  - RULE-SET,Origin,🎮 Game
+  - RULE-SET,Sony,🎮 Game
+  - RULE-SET,Steam,🎮 Game
+  - RULE-SET,Nintendo,🎮 Game
+  - RULE-SET,ChinaDownloadCDN,🎮 Game
+  - RULE-SET,InternationalDownloadCDN,🎮 Game
+  - RULE-SET,YouTube,📹 YouTube
+  - RULE-SET,Netflix,📺 流媒体劫持
+  - RULE-SET,disney,📺 流媒体劫持
+  - RULE-SET,TikTok,🎥 TikTok
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Twitch,🎮 Twitch
+  - RULE-SET,Twitter,🌌 Twitter
+  - RULE-SET,Bahamut,📺 巴哈姆特
+  - RULE-SET,BilibiliHMT,📺 哔哩哔哩
+  - RULE-SET,Bilibili,📺 哔哩哔哩
+  - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,ProxyMedia,🎬 国外媒体
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
+#  - RULE-SET,ChinaIp,🎯 全球直连
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - RULE-SET,Download,🎯 全球直连
+  
+#  - GEOSITE,PRIVATE,🎯 全球直连
+#  - GEOSITE,CN,🎯 全球直连
+#  - GEOIP,LAN,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+
+  - MATCH,🥅 兜底
