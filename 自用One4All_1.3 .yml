@@ -185,8 +185,8 @@ dns:
      - https://doh.pub/dns-query
      - https://dns.alidns.com/dns-query
    "rule-set:geolocation-!cn":
-     - "https://dns.cloudflare.com/dns-query#🚀 节点选择"
-     - "https://dns.google/dns-query#🚀 节点选择"
+     - "https://dns.cloudflare.com/dns-query#🔮 节点选择"
+     - "https://dns.google/dns-query#🔮 节点选择"
 #  fallback:          # 国外 DNS 服务器
 #    - https://cloudflare-dns.com/dns-query
 #    - https://dns.google/dns-query
@@ -200,7 +200,7 @@ dns:
 #========= 建立锚点 =========#
 
 # 策略组引用
-pr:        &a3 {type: select,   proxies: [🚀 节点选择, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, DIRECT] }
+pr:        &a3 {type: select,   proxies: [🔮 节点选择, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, DIRECT] }
 p:         &a1 {type: http,     interval: 7200,  health-check: {enable: true, url: http://cp.cloudflare.com/generate_204, interval: 1800}, exclude-filter: "(?i)国际|去除|游戏|返利|GAME|套餐|最新|更新|速度|付费|中国|官网|到期|有效|剩余|版本|已用|过期|失联|测试|官方|网址|备用|群|客服|网站|获取|订阅|流量|机场|下次|官址|联系|邮箱|工单|学术|USE|USED|TOTAL|EXPIRE|EMAIL"}
 X:         &x1 {type: http,     interval: 7200,  health-check: {enable: true, url: http://cp.cloudflare.com/generate_204, interval: 1800}}
 sub:        &a9 { use: [bpa, bpb, bpc, bpd, bpe, bpf, bpg, bph, bpi, bpj, bpk, bpl, bpm, bpn, bpo, bpp, 随便用]}
@@ -214,11 +214,11 @@ d:         &a5 {type: http,     behavior: domain,    interval: 86400}
 i:         &a7 {type: http,     behavior: ipcidr,    interval: 86400}
 
 sub2:        &b1 { use: [hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, ACA, NICE], exclude-filter: "(?i)Lite|Home|Emby|劫持|香港实验性|日本实验性|新加坡实验性|美国实验性"}
-b2:        &b2 {type: select,   proxies: [🚀 节点选择, DIRECT, 👻 低倍率, 🏠 Home, 💡 Good, 🔮 GG bond（手动）, ⚡ ACA, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
-b3:        &b3 {type: select,   proxies: [DIRECT, 🚀 节点选择, 👻 低倍率, 🏠 Home, 💡 Good, 🔮 GG bond（手动）, ⚡ ACA, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
+b2:        &b2 {type: select,   proxies: [🔮 节点选择, DIRECT, 🏠 Home, ⚡ ACA0.2, 花云0.2, 守候0.2, 🔮 GG bond（手动）, ⚡ ACA0.2, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
+b3:        &b3 {type: select,   proxies: [DIRECT, 🔮 节点选择, 🏠 Home, ⚡ ACA0.2, 花云0.2, 守候0.2, 🔮 GG bond（手动）, ⚡ ACA0.2, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
 loadbalance_3:        &b4 {type: select,   proxies: [🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）] }
-Good:        &b5 {type: select,   proxies: [⚡ ACA, 🪢 coo, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🛡️ 备用] }
-QAQ:        &b6 {type: select,   proxies: [👻 低倍率, 🪄 一念, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区] }
+Good:        &b5 {type: select,   proxies: [⚡ ACA0.2, 🪢 coo, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🛡️ 备用] }
+QAQ:        &b6 {type: select,   proxies: [🪄 一念, 🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区] }
 GG bond:        &g1 {type: load-balance, strategy: round-robin,  url: http://cp.cloudflare.com/generate_204, interval: 120, tolerance: 10, <<: *b1 }
 auto2:       &b7 {type: url-test, lazy: true,  url: http://cp.cloudflare.com/generate_204, interval: 360, tolerance: 10,<<: *b1 }
 备用:        &b8 {type: select,   proxies: [🐦 飞鸟云, 🚀 卷王机场,🪢 coo, 🌠 M78] }
@@ -376,7 +376,7 @@ proxy-providers:
 
   SYN:
     <<: *a1
-    url: ""
+    url: "https://gist.githubusercontent.com/aaddong1/680d94a7502e3086052f3448642d7310/raw/SYN"
 
   WARP:
     <<: *a1
@@ -392,10 +392,6 @@ proxy-providers:
 #    url: "https://api.flowercloud.xyz/osubscribe.php?sid=9041&token=u68NoXHcXu4P&sip002=1"
 
 
-  阿童木:
-    <<: *x1
-    url: "https://atom-sub.com/api/v1/client/subscribe?token=2ce9973257badaf5dc6e42e95b4eabab"
-
 proxies: 
     - {name: 🇰🇷 Opc韩国, server: krse3.ip8.shop, port: 20050, reality-opts: {public-key: -DzfQh5pVlGmJpvr-fluZkzTGXsZ-ok15raVKxCSf2M, short-id: 7f125185}, client-fingerprint: chrome, type: vless, uuid: 99e3d5d9-6e55-4a04-b2bc-3a90edc85490, tls: true, tfo: false, servername: aws.amazon.com, flow: xtls-rprx-vision, skip-cert-verify: false}
     - {name: 🇯🇵 日本-1PB/月, server: a3ca.e2s.buzz, port: 36999, type: ss, cipher: aes-256-gcm, password: 47c97380-6525-46ca-88ef-d23866fc904c}
@@ -403,13 +399,28 @@ proxies:
 
 proxy-groups:
 #分流分组
-  - {name: 🚀 节点选择, type: select, proxies: [👻 低倍率,⚡ ACA, 💡 Good, 🔮 GG bond（手动）, 🪄 一念, XQC$MJJ, WARP, 🛡️ 备用, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区, DIRECT]}
-  - {name: 🥅 兜底, type: select, proxies: [🚀 节点选择, DIRECT, 👻 低倍率,⚡ ACA, 💡 Good, 🔮 GG bond（手动）, 🪄 一念, 🛡️ 备用,  🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区], use: [ACA], filter: "Emby"}
+  - {name: 🔮 节点选择, type: select, proxies: [⚡ ACA0.2, 花云0.2, 守候0.2, DIRECT, 🔮 GG bond（手动）, 🪄 一念, XQC$MJJ, WARP, 🛡️ 备用, 🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区]}
+
+  - {name: 🥅 兜底, type: select, proxies: [🔮 节点选择, DIRECT, ⚡ ACA0.2, 花云0.2, 守候0.2, 🔮 GG bond（手动）, 🪄 一念, 🛡️ 备用,  🔮 GG bond（SG）, 🔮 GG bond（HK）, 🔮 GG bond（JP）, 🔮 GG bond（US）, 🇭🇰 香港, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区], use: [ACA], filter: "Emby"}
+
 #  - {name: 🎉 QAQ, <<: *b6}
-  - {name: 💡 Good, type: select, proxies: [花云, 阿童木]}
-  - {name: 🔮 GG bond（手动）, type: select, use: [NICE, hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, ACA], exclude-filter: "(?i)Lite|Home|Emby|劫持|香港实验性|日本实验性|新加坡实验性|美国实验性"}
+#  - {name: 💡 Good, type: select, proxies: [花云, ]}
+
+  - {name: 🔮 GG bond（手动）, type: select, use: [NICE, hy5, hy4, hy3, hy2, hy1, hy6, hy7, hy8, ACA, 花云], exclude-filter: "(?i)Lite|Home|Emby|劫持|香港实验性|日本实验性|新加坡实验性|美国实验性|0.20x|日用"}
+
+  - {name: "花云0.2", type: select,  use: [花云], filter: "实验性"}
+  - {name: "守候0.2", type: select,  use: [NICE], filter: "0.20x"}
+  - {name: "⚡ ACA0.2", type: select, use: [ACA], filter: "0.2"}
+  - {name: "🐦 飞鸟云", type: select, use: [飞鸟]}
+  - {name: "🚀 卷王机场", type: select, use: [卷王]}
+  - {name: "🌠 M78", type: select, use: [m78star]}
+  - {name: "🪢 coo", type: select, use: [coo]}
+  - {name: "🪄 一念", type: select, use: [一念], filter: "0.01"}
+
   - {name: 🎬 Emby, type: select, proxies: [🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, XQC$MJJ, WARP, 🪄 一念, DIRECT], use: [ACA], filter: "Emby"}
+
   - {name: 🎬 Emby-sp, type: select, proxies: [🇭🇰 香港, 🇸🇬 狮城, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇰🇷 韩国, 🌐 其它地区, XQC$MJJ, WARP, 🪄 一念, DIRECT]}
+
   - {name: 📲 Telegram, <<: *b2}
   - {name: 🤖 OpenAi, <<: *b2}
   - {name: 📹 YouTube, <<: *b2}
@@ -429,11 +440,11 @@ proxy-groups:
   - {name: 🍎 苹果服务, <<: *b3}
 #  - {name: 📡 dns, <<: *b2}
   - {name: 🎮 Game, <<: *b3}
-  - {name: 📺 巴哈姆特, type: select, proxies: [🇨🇳 台湾, 🚀 节点选择, DIRECT]}
+  - {name: 📺 巴哈姆特, type: select, proxies: [🇨🇳 台湾, 🔮 节点选择, DIRECT]}
   - {name: 📺 哔哩哔哩, type: select, proxies: [DIRECT, 🇭🇰 香港, 🇨🇳 台湾]}
   - {name: 🎬 国外媒体, <<: *b2}
   - {name: 🌏 国内媒体, type: select, proxies: [DIRECT, 🇯🇵 日本, 🇺🇸 美国, 🇨🇳 台湾, 🇸🇬 狮城, 🇰🇷 韩国, 🌐 其它地区]}
-  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🚀 节点选择]}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🔮 节点选择]}
   - {name: 🆎 广告拦截, type: select, proxies: [REJECT, DIRECT]}
   - {name: 🍃 应用净化, type: select, proxies: [REJECT, DIRECT]}
   
@@ -450,13 +461,11 @@ proxy-groups:
   - {name: 🔮 GG bond（HK）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)港|HK|hk|Hong Kong|HongKong|hongkong"}
   - {name: 🔮 GG bond（JP）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)日|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan"}
   - {name: 🔮 GG bond（US）, <<: *g1, exclude-filter: "0.2|2.0|6.0", filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"}
-  - {name: 👻 低倍率, <<: *c7, filter: "(Singapore).*(0.2)|SG 0[1-3] 0.20x V2|(实验性)|JP 0[1-3] 0.20x V2|(Japan).*(0.2)|0.2"}
-  - {name: "⚡ ACA", type: select, use: [ACA]}
-  - {name: "🐦 飞鸟云", type: url-test, use: [飞鸟], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "日本|新加坡|香港"}
-  - {name: "🚀 卷王机场", type: url-test, use: [卷王], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "日本|新加坡|香港"}
-  - {name: "🌠 M78", type: select, use: [m78star]}
-  - {name: "🪢 coo", type: select, use: [coo]}
-  - {name: "🪄 一念", type: select, use: [一念], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10, filter: "0.01"}
+  - {name: "Emby-syn", type: select,  use: [SYN], proxies: [🎬 Emby, DIRECT]}
+  - {name: "Emby-守候", type: load-balance,  use: [守候专用], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10}
+  - {name: "XQC$MJJ", type: url-test,  use: [bpa, bpb], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
+  - {name: "WARP", type: load-balance,  use: [WARP], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
+
 #  - {name: "bpa", type: select, use: [bpa]}
 #  - {name: "bpb", type: select, use: [bpb]}
 #  - {name: "bpc", type: select, use: [bpc]}
@@ -481,13 +490,6 @@ proxy-groups:
 #  - {name: "hy6", type: select, use: [hy6]}
 #  - {name: "hy7", type: select, use: [hy7]}
 #  - {name: "hy8", type: select, use: [hy8]}
-  - {name: "花云", type: select,  use: [花云]}
-  - {name: "阿童木", type: select,  use: [阿童木]}
-#  - {name: "Emby-syn", type: select,  use: [SYN], proxies: [🎬 Emby, DIRECT]}
-  - {name: "Emby-守候", type: load-balance,  use: [守候专用], url: "http://cp.cloudflare.com/generate_204", interval: 300, tolerance: 10}
-  - {name: "XQC$MJJ", type: url-test,  use: [bpa, bpb], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
-  - {name: "WARP", type: load-balance,  use: [WARP], url: "http://cp.cloudflare.com/generate_204", interval: 120, tolerance: 10}
-
 
 
 
@@ -688,7 +690,7 @@ rules:
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,ProxyMedia,🎬 国外媒体
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
+  - RULE-SET,ProxyGFWlist,🔮 节点选择
 #  - RULE-SET,ChinaIp,🎯 全球直连
   - RULE-SET,ChinaDomain,🎯 全球直连
   - RULE-SET,ChinaCompanyIp,🎯 全球直连
